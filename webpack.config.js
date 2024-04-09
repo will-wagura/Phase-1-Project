@@ -21,4 +21,9 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    headers: {
+      "Content-Type": "application/javascript"
+    }
+  }
 };
