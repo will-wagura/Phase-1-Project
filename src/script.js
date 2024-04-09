@@ -1,11 +1,11 @@
 // Function to fetch restaurant reviews using Google Places API
 async function fetchRestaurantReviews() {
-  const apiKey = process.env.API_KEY;
+  const API_KEY = process.env.API_KEY
   const location = "Nairobi, Kenya";
   const radius = 10000;
   const keyword = "restaurant";
 
-  const apiUrl = `http://localhost:8080/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
+  const apiUrl = `http://localhost:8080/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${API_KEY}`;
 
   try {
     const response = await fetch(apiUrl);
