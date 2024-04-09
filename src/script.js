@@ -5,7 +5,7 @@ async function fetchRestaurantReviews() {
   const radius = 10000;
   const keyword = "restaurant";
 
-  const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
+  const apiUrl = `http://localhost:8080/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&keyword=${keyword}&key=${apiKey}`;
 
   try {
     const response = await fetch(apiUrl);

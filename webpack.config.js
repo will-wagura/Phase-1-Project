@@ -22,8 +22,12 @@ module.exports = {
     ],
   },
   devServer: {
+    contentBase: path.join(__dirname, "public"),
+    compress: true,
+    port: 8080,
     headers: {
       "Content-Type": "application/javascript"
-    }
+    },
+    watchContentBase: true,
   }
 };
