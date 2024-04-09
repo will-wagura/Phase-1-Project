@@ -29,5 +29,10 @@ module.exports = {
       "Content-Type": "application/javascript"
     },
     watchContentBase: true,
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    })
+  ]
 };
