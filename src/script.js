@@ -1,5 +1,5 @@
-// Function to fetch restaurant reviews using Google Places API
 async function fetchRestaurantReviews() {
+  require('dotenv').config();
   const API_KEY = process.env.API_KEY
   const location = "Nairobi, Kenya";
   const radius = 10000;
@@ -16,18 +16,24 @@ async function fetchRestaurantReviews() {
 
     const data = await response.json();
 
-    if (data.status !== "OK") {
+    if (data.status!== "OK") {
       throw new Error(`Error fetching restaurant data: ${data.status}`);
     }
 
     const restaurants = data.results;
+
+    // Sort restaurants by rating in descending order
+    restaurants.sort((a, b) => b.rating - a.rating);
+
+    // Select the top 10 restaurants
+    const topRestaurants = restaurants.slice(0, 10);
 
     // Clear previous reviews
     const carousel = document.querySelector(".carousel");
     carousel.innerHTML = "";
 
     // Iterate over each restaurant
-    restaurants.forEach((restaurant) => {
+    topRestaurants.forEach((restaurant) => {
       const name = restaurant.name;
       const rating = restaurant.rating;
       const reviews = restaurant.reviews || []; // Check if reviews are available
@@ -40,8 +46,8 @@ async function fetchRestaurantReviews() {
                     <p>Rating: ${rating}</p>
                     <ul>
                         ${reviews
-                          .map((review) => `<li>${review.text}</li>`)
-                          .join("")}
+                        .map((review) => `<li>${review.text}</li>`)
+                        .join("")}
                     </ul>
                 `;
 

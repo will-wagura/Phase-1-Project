@@ -447,7 +447,7 @@ if (typeof process === 'undefined') {
                   return (
                     (e = process.env.API_KEY),
                     (n =
-                      "http://localhost:8080/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
+                      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
                         .concat("Nairobi, Kenya", "&radius=")
                         .concat(1e4, "&keyword=")
                         .concat("restaurant", "&key=")
